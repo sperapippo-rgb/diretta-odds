@@ -1,0 +1,48 @@
+<!doctype html>
+<html lang="it">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#101827">
+  <meta name="description" content="Filtro quote calcio per data e intervallo di quota.">
+  <link rel="manifest" href="manifest.webmanifest">
+  <link rel="stylesheet" href="styles.css">
+  <title>Diretta Odds</title>
+</head>
+<body>
+  <header class="top">
+    <div><div class="eyebrow">CALCIO · QUOTE</div><h1>Diretta Odds</h1></div>
+    <a class="source" href="https://www.diretta.it/" target="_blank" rel="noopener">Apri Diretta.it ↗</a>
+  </header>
+  <main>
+    <section class="panel filters">
+      <div class="section-head"><h2>Filtra le partite</h2><button id="reset" class="quiet">Azzera filtri</button></div>
+      <div class="fields">
+        <label>Data partita<input id="matchDate" type="date"></label>
+        <label>Quota minima <span class="optional">facoltativa</span><input id="minOdds" type="number" min="1" step="0.01" placeholder="Nessun minimo"></label>
+        <label>Quota massima <span class="optional">facoltativa</span><input id="maxOdds" type="number" min="1" step="0.01" placeholder="Nessun massimo"></label>
+        <label>Mercato<select id="market"><option value="">Tutti i mercati importati</option></select></label>
+        <label class="wide">Cerca squadra o campionato<input id="search" type="search" placeholder="Es. Inter, Serie A..."></label>
+      </div>
+      <div class="actions">
+        <label class="file-button">Importa dati JSON/CSV<input id="fileInput" type="file" accept=".json,.csv,application/json,text/csv"></label>
+        <button id="refresh" class="secondary">Aggiorna vista</button>
+      </div>
+      <p class="hint">Le quote minime e massime sono entrambe facoltative. Se lasci i campi vuoti, non viene applicato alcun limite.</p>
+    </section>
+    <section class="summary">
+      <div><strong id="count">0</strong><span>esiti visualizzati</span></div>
+      <div><strong id="games">0</strong><span>partite</span></div>
+      <div><strong id="updated">—</strong><span>ultimo caricamento</span></div>
+    </section>
+    <section class="panel">
+      <div class="section-head"><h2>Palinsesto</h2><span id="dateLabel" class="muted"></span></div>
+      <div id="notice" class="notice">Nessun dato caricato. Importa un file dati per visualizzare le quote.</div>
+      <div id="results" class="results"></div>
+    </section>
+    <p class="disclaimer">Le quote visualizzate sono quelle contenute nei dati importati e potrebbero non essere aggiornate. Verifica sempre la quota sul sito del bookmaker prima di qualsiasi decisione.</p>
+  </main>
+  <footer>Diretta Odds · Prototipo PWA gratuito</footer>
+  <script src="app.js"></script>
+</body>
+</html>
